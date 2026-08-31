@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <!-- Menu Lateral (Sidebar) Fixo -->
+<nav class="d-flex flex-column p-4 bg-white shadow-sm border-end vh-100 position-fixed" style="width: 280px; top: 0; left: 0;">
+  
+  <!-- Cabeçalho do Menu / Logo -->
+  <div class="d-flex align-items-center gap-3 mb-4 mt-2">
+    <a href="#">
+      <img src="https://placehold.co/40x40" alt="Logo" class="rounded">
+    </a>
+    <span class="fw-bold fs-5 text-dark">Meu Sistema</span>
+  </div>
+
+  <hr class="text-secondary opacity-25 mb-4">
+
+  <!-- Lista de Links de Navegação -->
+  <ul class="nav flex-column gap-2 mb-auto">
+    <li class="nav-item">
+      <!-- O link ativo pode receber a classe "text-dark fw-bold", e os inativos "text-secondary" -->
+      <a href="/dashboard" class="nav-link text-dark fw-bold px-3 py-2 rounded bg-light">Dashboard</a>
+    </li>
+    <li class="nav-item">
+      <a href="/projetos" class="nav-link text-secondary px-3 py-2 rounded">Meus Projetos</a>
+    </li>
+    <li class="nav-item">
+      <a href="/configuracoes" class="nav-link text-secondary px-3 py-2 rounded">Configurações</a>
+    </li>
+  </ul>
+
+  <hr class="text-secondary opacity-25 mt-4 mb-4">
+
+  <!-- Rodapé do Menu / Botão de Sair -->
+  <div>
+    <a href="login.html" class="btn btn-outline-danger w-100 py-2 fw-bold rounded-pill shadow-sm d-flex justify-content-center align-items-center gap-2">
+      <i class="bi bi-box-arrow-left"></i> Sair
+    </a>
+  </div>
+
+</nav>
+    
+</body>
+</html>

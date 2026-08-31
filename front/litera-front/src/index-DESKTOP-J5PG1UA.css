@@ -1,0 +1,65 @@
+/* Paltea de cores */
+:root {
+
+  --black: #140B0E;
+  --darkgray: #1b1b1b;
+  --gray: #828282;
+  --lightgray: #c2c2c2;
+  --white: #ecdec4;
+  --red: #B80A06;
+  --darkred: #800000;
+  --darker: #5c0303;
+
+}
+
+/* Cores de fundo */
+.c-black { background-color: var(--black); }
+.c-darkgray { background-color: var(--darkgray); }
+.c-gray { background-color: var(--gray); }
+.c-lightgray { background-color: var(--lightgray); }
+.c-white { background-color: var(--white); }
+.c-red { background-color: var(--red); }
+.c-darkred { background-color: var(--darkred); }
+.c-darker { background-color: var(--darker); }
+
+.c-gradient1 { background: linear-gradient(var(), var()); }
+.c-gradient2 { background: linear-gradient(var(), var()); }
+.c-gradient3 { background: linear-gradient(var(), var()); }
+
+/* Cores de fonte */
+.f-black { color: var(--black); }
+.f-darkgray { color: var(--darkgray); }
+.f-gray { color: var(--gray); }
+.f-lightgray { color: var(--lightgray); }
+.f-white { color: var(--white); }
+.f-red { color: var(--red); }
+.f-darkred { color: var(--darkred); }
+.f-darker { color: var(--darker); }
+
+/* Fontes */
+
+/* Estilização de fontes */
+.f-espacado { letter-spacing: 5px; }
+
+.f-pp { font-size: 14px; }
+.f-p { font-size: 18px; }
+.f-m { font-size: 24px; }
+.f-g { font-size: clamp(2rem, 5vw, 3rem); }
+.f-gg { font-size: clamp(3rem, 8vw, 5.5rem); }
+.f-ggg { font-size: clamp(4rem, 10vw, 7.5rem); }
+
+/* Cards */
+.card-heigt { height: 240px; }
+
+.border-red { border-color: var(--darkred); }
+
+/* Botões */
+
+.btn-slide {
+  background: linear-gradient(to right, var() 50%, var() 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  border: none;
+  transition: all 0.4s ease-out;
+}
+

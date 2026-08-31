@@ -1,0 +1,142 @@
+/* Fundo da Página */
+.bg-login-custom {
+  background: radial-gradient(circle at top left, var(--darkgray) 0%, var(--black) 100%);
+  min-height: 100vh;
+}
+
+/* Limitadores de largura */
+.login-container {
+  max-width: 1000px;
+}
+
+.login-form-wrapper {
+  max-width: 420px;
+}
+
+/* Barras decorativas do painel esquerdo */
+.decor-bar {
+  height: 4px;
+}
+.decor-bar-lg {
+  width: 40px;
+}
+.decor-bar-sm {
+  width: 20px;
+}
+
+/* Divisor do formulário (Ou continue com) */
+.divider-gray {
+  border-color: var(--gray);
+}
+
+/* Card Principal */
+.card-glass {
+  border: 1px solid var(--darker);
+  box-shadow: 0 20px 50px rgba(20, 11, 14, 0.9), inset 0 0 0 1px rgba(184, 10, 6, 0.2);
+  overflow: hidden;
+}
+
+/* Painel Esquerdo com Gradiente Dinâmico */
+.brand-panel {
+  background: linear-gradient(135deg, var(--black) 0%, var(--darker) 50%, var(--darkred) 100%);
+  border-right: 2px solid var(--red);
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-panel::before {
+  content: "";
+  position: absolute;
+  top: -50%; left: -50%; width: 200%; height: 200%;
+  background: radial-gradient(circle, rgba(236,222,196,0.03) 2px, transparent 2px);
+  background-size: 30px 30px;
+  transform: rotate(30deg);
+}
+
+/* Inputs Customizados */
+.custom-input {
+  background-color: var(--black) !important;
+  color: var(--white) !important;
+  border: 1px solid var(--gray) !important;
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-input:focus {
+  border-color: var(--red) !important;
+  box-shadow: 0 0 15px rgba(184, 10, 6, 0.4), inset 0 0 5px rgba(184, 10, 6, 0.2) !important;
+}
+
+/* Ajuste das Floating Labels do Bootstrap para Dark Mode */
+.form-floating > label {
+  color: var(--gray);
+}
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+  color: var(--red);
+  background-color: transparent;
+  transform: scale(0.85) translateY(-2.5rem) translateX(0.15rem);
+}
+.form-floating > .form-control:focus, .form-floating > .form-control:not(:placeholder-shown) {
+    padding-top: 1.625rem;
+    padding-bottom: 0.625rem;
+}
+
+/* Botão Principal com Efeito Glow e 3D */
+.btn-principal-custom {
+  background: linear-gradient(45deg, var(--darkred), var(--red));
+  border: 1px solid var(--red);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.4s;
+}
+
+.btn-principal-custom:hover {
+  background: linear-gradient(45deg, var(--red), var(--darker));
+  color: #fff;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 5px 10px rgba(184, 9, 6, 0.438);
+  border-color: var(--white);
+}
+
+/* Botões Sociais */
+.btn-social-custom {
+  background-color: var(--black);
+  color: var(--lightgray);
+  border: 1px solid var(--gray);
+  transition: all 0.3s ease;
+}
+
+.btn-social-custom:hover {
+  background-color: var(--darkred);
+  color: var(--white);
+  border-color: var(--red);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(92, 3, 3, 0.486);
+}
+
+/* Links Customizados */
+.link-custom {
+  transition: all 0.3s ease;
+}
+
+.link-custom:hover {
+  color: var(--white) !important;
+  text-shadow: 0 0 8px var(--red);
+}
+
+/* Estilos para a Logo do Footer */
+.logo {
+  max-width: 120px; /* Ajuste o tamanho máximo da sua imagem aqui */
+  height: auto;
+  transition: transform 0.9s ease;
+}
+
+.logo:hover {
+  transform: scale(1.09);
+}
+
+/* Tamanho fixo caso use o ícone padrão da marca */
+.icon-logo {
+  height: 50px;
+  width: 40px;
+}
