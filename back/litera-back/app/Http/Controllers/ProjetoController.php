@@ -4,15 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Projeto;
 use Illuminate\Http\Request;
+use App\Http\Resources\ProjetoResource;
 
 class ProjetoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
+    
     {
-        return response()->json(Projeto::all(), 200);
+        //Buscamos os dados 'mais recentes' registrados (essa busca é feita pelo campo timestamp)
+        //Respeitando o limite definido pelo usuário, tendo como padrão 3 requisições
+        $limit = $request->input('limit', 3);
+        
+        $projeto = Projeto::latest()->take($limit)->get();
+
+        //O método 'collection' é usado quando retornamos uma LISTA (array de objetos)
+        return ProjetoResource::collection($projeto);
     }
 
     /**
