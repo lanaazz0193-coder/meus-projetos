@@ -70,7 +70,7 @@ const ProjectSection = () => {
             <div className="project-card-secondary h-100 rounded-4 overflow-hidden">
               <div className="project-img-wrapper" style={{ minHeight: '200px' }}>
                 <img  
-                  src="$"
+                  src="src\assets\imgs\dz-project.png"
                   className="project-img-custom" 
                   alt="DevZone"
                 />

@@ -9,7 +9,7 @@ const NavBar = () => {
       
         {/* Usando Link em vez de <a> para navegação interna */}
         <Link to="/" className="navbar-brand">
-          <img src="src/assets/imgs/logo-branca.png" className="navbar-logo" alt="Logo" />
+          <img src="src\assets\imgs\logo-branca.png" className="navbar-logo" alt="Logo" />
         </Link>
 
         {/* Toggler atualizado */}
