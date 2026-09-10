@@ -53,7 +53,6 @@ const ProjectSection = () => {
                 </Link>
               </div>
             </div>
-            
           </div>
         </div>
 
@@ -70,7 +69,7 @@ const ProjectSection = () => {
             <div className="project-card-secondary h-100 rounded-4 overflow-hidden">
               <div className="project-img-wrapper" style={{ minHeight: '200px' }}>
                 <img  
-                  src="src\assets\imgs\dz-project.png"
+                  src="/src/assets/imgs/dz-project.jpg"
                   className="project-img-custom" 
                   alt="DevZone"
                 />

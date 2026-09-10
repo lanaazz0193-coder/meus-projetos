@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 import PortalPublico from "./layouts/PortalPublico";
-//import LiteraApp from "./layouts/LiteraApp";
+import LiteraApp from "./layouts/LiteraApp";
 import Home from "./routes/Portal/Home";
 import Litera from "./routes/Portal/Litera";
 import Login from "./routes/Litera/Login";
@@ -15,10 +15,11 @@ function App() {
         <Route path="/" element={<PortalPublico />}>
           <Route index element={<Home />} />
           <Route path="litera" element={<Litera />} />
+          <Route path="dashboard" element={<Dashboard />} />
         </Route>
 
         {/* Área interna — sistema Litera */}
-        <Route path="/litera-app" element={<PortalPublico />}>
+        <Route path="/litera-app" element={<LiteraApp />}>
           <Route path="login" element={<Login />} />
           <Route path="dashboard" element={<Dashboard />} />
         </Route>

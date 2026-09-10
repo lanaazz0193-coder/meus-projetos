@@ -39,6 +39,7 @@ const HeroSection = () => {
             <h1 className="display-3 fw-bold lh-sm mb-3 f-ballet f-white hero-title-glow">
               Ana - Souza
             </h1>
+            
             <p className="lead mb-5 fs-5 px-md-3 f-gray">
               Desenvolvedora em constante evolução.
             </p>

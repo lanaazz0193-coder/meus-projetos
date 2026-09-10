@@ -1,0 +1,327 @@
+/* ═══════════════════════════════════════════════════════
+   DASHBOARD — sistema Litera
+   Paleta Litera:
+     --graphite     (#260808) → fundo principal   (≈ --black)
+     --paco         (#4B1912) → bordas / escuro   (≈ --darker / --darkred)
+     --millbrook    (#593C34) → texto secundário  (≈ --gray)
+     --spicymix     (#8C5E47) → acento principal  (≈ --red)
+     --sorrellbrown (#C8A589) → texto claro       (≈ --white / --lightgray)
+══════════════════════════════════════════════════════════ */
+
+/* Fundo geral — creme quente derivado do sorrellbrown */
+.dashboard-wrapper {
+  background-color: #f5ede4;
+  min-height: 100vh;
+  padding: 2rem 2.5rem;
+}
+
+/* ── Cabeçalho ──────────────────────────────────────── */
+.dashboard-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--graphite);
+  letter-spacing: -0.5px;
+  margin-bottom: 0;
+}
+
+.dashboard-subtitle {
+  font-size: 0.8rem;
+  color: var(--millbrook);
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+
+/* ── Botão primário (acento spicymix) ───────────────── */
+.btn-litera {
+  background: linear-gradient(135deg, var(--paco), var(--spicymix));
+  color: var(--sorrellbrown);
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 0.85rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 0.4rem;
+  transition: all 0.3s ease;
+}
+
+.btn-litera:hover {
+  background: linear-gradient(135deg, var(--spicymix), var(--paco));
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(140, 94, 71, 0.45);
+}
+
+/* ── Stat Cards ─────────────────────────────────────── */
+.stat-card {
+  background-color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 1.4rem 1.5rem;
+  height: 100%;
+  box-shadow: 0 1px 4px rgba(38, 8, 8, 0.07);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.stat-card:hover {
+  box-shadow: 0 6px 20px rgba(38, 8, 8, 0.12);
+  transform: translateY(-2px);
+}
+
+.stat-card-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--millbrook);
+  margin-bottom: 0;
+}
+
+.stat-card-icon {
+  font-size: 1.3rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.4rem;
+  background-color: rgba(140, 94, 71, 0.12);
+  color: var(--spicymix);
+}
+
+.stat-card-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--graphite);
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stat-card-sub {
+  font-size: 0.78rem;
+  color: var(--millbrook);
+  margin-bottom: 0;
+}
+
+.stat-card-action {
+  background: transparent;
+  border: 1px solid var(--paco);
+  color: var(--paco);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.35rem;
+  transition: all 0.25s ease;
+}
+
+.stat-card-action:hover {
+  background-color: var(--spicymix);
+  border-color: var(--spicymix);
+  color: #fff;
+}
+
+/* ── Cards de dados (tabela, gêneros, recentes) ─────── */
+.data-card {
+  background-color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 4px rgba(38, 8, 8, 0.07);
+  overflow: hidden;
+}
+
+.data-card-header {
+  background-color: #fff;
+  border-bottom: 1px solid #f0e8e0;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.data-card-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--graphite);
+  margin-bottom: 0;
+  letter-spacing: -0.2px;
+}
+
+/* ── Tabela ─────────────────────────────────────────── */
+.litera-table thead th {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--millbrook);
+  background-color: #faf3ee;
+  border-bottom: 1px solid #f0e8e0;
+  padding: 0.75rem 1rem;
+  white-space: nowrap;
+}
+
+.litera-table thead th:first-child {
+  padding-left: 1.25rem;
+}
+
+.litera-table thead th:last-child {
+  padding-right: 1.25rem;
+}
+
+.litera-table tbody td {
+  font-size: 0.85rem;
+  color: var(--millbrook);
+  padding: 0.75rem 1rem;
+  vertical-align: middle;
+  border-bottom: 1px solid #f7f0ea;
+}
+
+.litera-table tbody td:first-child {
+  padding-left: 1.25rem;
+  font-weight: 600;
+  color: var(--graphite);
+}
+
+.litera-table tbody td:last-child {
+  padding-right: 1.25rem;
+}
+
+.litera-table tbody tr:hover {
+  background-color: #faf3ee;
+}
+
+.litera-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Badge de gênero */
+.genre-badge {
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.25rem;
+  background-color: rgba(140, 94, 71, 0.12);
+  color: var(--paco);
+  border: none;
+}
+
+/* Botões de ação da tabela */
+.btn-table-action {
+  background: transparent;
+  border: 1px solid #e8ddd5;
+  border-radius: 0.35rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.btn-table-edit:hover {
+  background-color: rgba(140, 94, 71, 0.1);
+  border-color: var(--spicymix);
+  color: var(--spicymix);
+}
+
+.btn-table-delete:hover {
+  background-color: rgba(75, 25, 18, 0.1);
+  border-color: var(--paco);
+  color: var(--paco);
+}
+
+/* ── Barra de progresso (Gêneros) ───────────────────── */
+.genre-progress-bar {
+  height: 4px;
+  background-color: #f0e8e0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.genre-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--paco), var(--spicymix));
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+
+.genre-label {
+  font-size: 0.8rem;
+  color: var(--millbrook);
+}
+
+.genre-count {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--graphite);
+}
+
+/* ── Lista de Recentes ──────────────────────────────── */
+.recent-item {
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f7f0ea;
+  transition: background 0.2s ease;
+}
+
+.recent-item:last-child {
+  border-bottom: none;
+}
+
+.recent-item:hover {
+  background-color: #faf3ee;
+}
+
+.recent-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--graphite);
+  margin-bottom: 0.1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recent-author {
+  font-size: 0.75rem;
+  color: var(--millbrook);
+  margin-bottom: 0;
+}
+
+.recent-date {
+  font-size: 0.72rem;
+  color: var(--spicymix);
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 0.75rem;
+}
+
+/* ── Skeleton ───────────────────────────────────────── */
+.skeleton-block {
+  background: linear-gradient(90deg, #f0e8e0 25%, #e8ddd5 50%, #f0e8e0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 0.3rem;
+  display: block;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Estado vazio ───────────────────────────────────── */
+.empty-state {
+  padding: 3rem 1rem;
+  text-align: center;
+  color: var(--millbrook);
+  font-size: 0.88rem;
+}
+
+.empty-state i {
+  font-size: 2rem;
+  color: var(--spicymix);
+  display: block;
+  margin-bottom: 0.75rem;
+  opacity: 0.5;
+}

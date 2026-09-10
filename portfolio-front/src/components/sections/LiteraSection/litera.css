@@ -1,0 +1,269 @@
+/* ═══════════════════════════════════════════════════════
+   LITERA SECTION — página pública de apresentação
+   Paleta Litera:
+     --graphite     (#260808) → fundo principal   (≈ --black)
+     --paco         (#4B1912) → bordas / escuro   (≈ --darker / --darkred)
+     --millbrook    (#593C34) → texto secundário  (≈ --gray)
+     --spicymix     (#8C5E47) → acento principal  (≈ --red)
+     --sorrellbrown (#C8A589) → texto claro       (≈ --white / --lightgray)
+══════════════════════════════════════════════════════════ */
+
+/* Fundo da seção */
+.litera-section {
+  background-color: var(--graphite);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Textura pontilhada de fundo */
+.litera-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(200, 165, 137, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Gradiente de vinheta nas bordas */
+.litera-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(38, 8, 8, 0.75) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.litera-section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Badge "Projeto Destaque" ────────────────────────── */
+.litera-badge {
+  background-color: rgba(140, 94, 71, 0.18);
+  border: 1px solid rgba(140, 94, 71, 0.4);
+  color: var(--sorrellbrown);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Título principal ────────────────────────────────── */
+.litera-title {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  color: var(--sorrellbrown);
+}
+
+.litera-title-accent {
+  color: var(--spicymix);
+}
+
+/* ── Parágrafo introdutório ──────────────────────────── */
+.litera-lead {
+  color: var(--millbrook);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ── Divisor decorativo ──────────────────────────────── */
+.litera-divider {
+  color: var(--millbrook);
+  font-size: 1.5rem;
+  letter-spacing: 8px;
+  opacity: 0.5;
+}
+
+/* ── Card de citação ─────────────────────────────────── */
+.quote-card {
+  background: linear-gradient(135deg, rgba(75, 25, 18, 0.6), rgba(38, 8, 8, 0.8));
+  border: 1px solid var(--paco);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  box-shadow: 0 8px 30px rgba(38, 8, 8, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-card::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.5rem;
+  left: 1rem;
+  font-size: 6rem;
+  color: var(--spicymix);
+  opacity: 0.18;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.quote-text {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--sorrellbrown);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.quote-author {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--spicymix);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+/* ── Cards de features ───────────────────────────────── */
+.feature-card {
+  border-radius: 1rem;
+  padding: 2rem 1.75rem;
+  height: 100%;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  border-color: var(--spicymix);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(112, 78, 61, 0.25);
+}
+
+.feature-icon-wrap {
+  width: 3.2rem;
+  height: 3.2rem;
+  background-color: rgba(140, 94, 71, 0.15);
+  border-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.feature-icon {
+  font-size: 1.4rem;
+  color: var(--spicymix);
+}
+
+.feature-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--sorrellbrown);
+  margin-bottom: 0.75rem;
+}
+
+.feature-text {
+  font-size: 0.88rem;
+  color: var(--millbrook);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* ── Card de convite final ───────────────────────────── */
+.litera-cta-card {
+  background: linear-gradient(135deg, var(--paco) 0%, var(--spicymix) 50%, rgba(89, 60, 52, 0.3) 100%);
+  border: 1px solid rgba(140, 94, 71, 0.35);
+  border-radius: 1.5rem;
+  padding: 4rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.litera-cta-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(140, 94, 71, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.litera-cta-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--spicymix);
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.litera-cta-title {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--sorrellbrown);
+  margin-bottom: 1.25rem;
+}
+
+.litera-cta-text {
+  color: var(--millbrook);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+/* ── Botão CTA ───────────────────────────────────────── */
+.btn-litera-cta {
+  background: transparent;
+  color: var(--sorrellbrown);
+  border: 1px solid var(--paco);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.85rem 2.5rem;
+  border-radius: 0.25rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-litera-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--paco));
+  z-index: -1;
+  transition: left 0.5s ease;
+}
+
+.btn-litera-cta:hover {
+  color: var(--sorrellbrown);
+  border-color: var(--spicymix);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(140, 94, 71, 0.4);
+}
+
+.btn-litera-cta:hover::before {
+  left: 0;
+}
+
+/* ── Linha separadora ────────────────────────────────── */
+.litera-hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--paco), transparent);
+  margin: 0;
+}

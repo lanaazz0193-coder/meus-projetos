@@ -1,60 +1,55 @@
+import { NavLink } from "react-router";
+import './sidebar.css';
+
+const navItems = [
+  { to: "/litera-app/dashboard",   label: "Dashboard",       icon: "bi-speedometer2" },
+  { to: "/litera-app/livros",      label: "Catálogo",        icon: "bi-book" },
+  { to: "/litera-app/emprestimos", label: "Empréstimos",     icon: "bi-arrow-left-right" },
+  { to: "/litera-app/relatorios",  label: "Relatórios",      icon: "bi-bar-chart-line" },
+];
+
 const SideBar = () => {
-    return (
-    // 'vh-100' ocupa toda a altura, 'flex-shrink-0' impede que a barra amasse, 'bg-light' dá um fundo claro
-    <aside className="d-flex flex-column flex-shrink-0 p-3 bg-light vh-100" style={{ width: '280px' }}>
-      
-      {/* Área da Logo / Título do Sistema */}
-      <a href="/" className="d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none w-100">
-        {/* Inserir a imagem da logo aqui */}
-        <span className="fs-5 fw-bold text-center">{/* Nome do Sistema / Biblioteca */}</span>
-      </a>
-      
-      <hr />
+  return (
+    <aside className="sidebar">
 
-      {/* Menu de Navegação */}
-      {/* 'mb-auto' empurra qualquer conteúdo abaixo deste menu para o final da tela */}
-      <ul className="nav nav-pills flex-column mb-auto gap-1">
-        
-        {/* Item 1: Link Ativo (Ex: Dashboard) */}
-        <li className="nav-item">
-          {/* A classe 'active' do Bootstrap destaca o botão atual */}
-          <a href="#" className="nav-link active d-flex align-items-center" aria-current="page">
-            <span className="me-2">{/* Inserir Ícone 1 aqui */}</span>
-            {/* Texto do Link 1 */}
-          </a>
-        </li>
+      {/* ── Logo ─────────────────────────────────────── */}
+      <div className="sidebar-brand">
+        <i className="bi bi-book-half sidebar-brand-icon f-red"></i>
+        <span className="sidebar-brand-name">
+          Lite<span>ra</span>
+        </span>
+      </div>
 
-        {/* Item 2 (Ex: Catálogo) */}
-        <li>
-          <a href="#" className="nav-link link-dark d-flex align-items-center">
-            <span className="me-2">{/* Inserir Ícone 2 aqui */}</span>
-            {/* Texto do Link 2 */}
-          </a>
-        </li>
+      {/* ── Navegação ────────────────────────────────── */}
+      <nav className="sidebar-nav">
 
-        {/* Item 3 (Ex: Membros) */}
-        <li>
-          <a href="#" className="nav-link link-dark d-flex align-items-center">
-            <span className="me-2">{/* Inserir Ícone 3 aqui */}</span>
-            {/* Texto do Link 3 */}
-          </a>
-        </li>
+        <span className="sidebar-label">Menu</span>
 
-        {/* Adicione os demais links copiando o bloco <li> acima */}
-      </ul>
-      
-      <hr />
+        {navItems.map(({ to, label, icon }) => (
+          <NavLink
+            key={to}
+            to={to}
+            className={({ isActive }) =>
+              `sidebar-link${isActive ? " active" : ""}`
+            }
+          >
+            <i className={`bi ${icon}`}></i>
+            {label}
+          </NavLink>
+        ))}
 
-      {/* Rodapé da Sidebar (Geralmente Configurações ou Perfil rápido) */}
+      </nav>
+
+      {/* ── Rodapé ───────────────────────────────────── */}
       <div className="sidebar-footer">
-        <a href="#" className="d-flex align-items-center link-dark text-decoration-none">
-          <span className="me-2">{/* Inserir Ícone de Engrenagem (Configurações) */}</span>
-          <strong>{/* Texto "Configurações" ou "Sair" */}</strong>
-        </a>
+        <NavLink to="/litera-app/login" className="sidebar-logout">
+          <i className="bi bi-box-arrow-left"></i>
+          Sair do sistema
+        </NavLink>
       </div>
 
     </aside>
   );
-}
+};
 
 export default SideBar;

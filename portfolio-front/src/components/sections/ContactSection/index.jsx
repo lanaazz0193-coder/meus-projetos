@@ -1,4 +1,3 @@
-import React from 'react';
 import './contact.css'; // Importando o CSS local
 
 const ContactSection = () => {

@@ -12,6 +12,32 @@
 
 }
 
+/* Paleta Litera */
+
+:root {
+
+  --graphite:     #260808;
+  --paco:         #4B1912;
+  --spicymix:     #8C5E47;
+  --sorrellbrown: #C8A589;
+  --millbrook:    #593C34;
+
+}
+
+/* Cores de fundo — Litera */
+.c-graphite     { background-color: var(--graphite); }
+.c-paco         { background-color: var(--paco); }
+.c-spicymix     { background-color: var(--spicymix); }
+.c-sorrellbrown { background-color: var(--sorrellbrown); }
+.c-millbrook    { background-color: var(--millbrook); }
+
+/* Cores de fonte — Litera */
+.f-graphite     { color: var(--graphite); }
+.f-paco         { color: var(--paco); }
+.f-spicymix     { color: var(--spicymix); }
+.f-sorrellbrown { color: var(--sorrellbrown); }
+.f-millbrook    { color: var(--millbrook); }
+
 /* Cores de fundo */
 .c-black { background-color: var(--black); }
 .c-darkgray { background-color: var(--darkgray); }

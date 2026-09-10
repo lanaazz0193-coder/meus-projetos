@@ -112,3 +112,73 @@
   transform: translateY(-2px);
   box-shadow: 0 5px 10px rgba(92, 3, 3, 0.486);
 }
+
+/* --- Linha separadora ---*/
+.hr-darkred {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--darker), transparent);
+  margin: 2rem 0 3rem;
+}
+
+/* --- Botões de admin no card (editar/excluir) --- */
+.project-admin-actions {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  display: flex;
+  gap: 0.35rem;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.project-card-secondary:hover .project-admin-actions {
+  opacity: 1;
+}
+
+.project-admin-btn {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(20, 11, 14, 0.85);
+  border: 1px solid var(--darker);
+  border-radius: 0.35rem;
+  color: var(--lightgray);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.project-admin-btn:hover {
+  background-color: var(--darkred);
+  border-color: var(--red);
+  color: var(--white);
+}
+
+.project-admin-btn-delete:hover {
+  background-color: rgba(184, 10, 6, 0.7);
+  border-color: var(--red);
+}
+
+/* --- Placeholder quando não há imagem --- */
+.project-img-placeholder {
+  background-color: var(--black);
+  min-height: 200px;
+}
+
+/* --- Skeleton de carregamento --- */
+.skeleton-project {
+  background: linear-gradient(90deg, #1e1e1e 25%, #2a2a2a 50%, #1e1e1e 75%);
+  background-size: 200% 100%;
+  animation: shimmer-dark 1.4s infinite;
+  border-radius: 0.3rem;
+  display: block;
+}
+
+@keyframes shimmer-dark {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

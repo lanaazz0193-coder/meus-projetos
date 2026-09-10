@@ -30,6 +30,7 @@ const NavBar = () => {
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0 gap-2">
             <NavItem title="Início" to="/" />
             <NavItem title="Litera" to="/Litera" />
+            <NavItem title="Dashboard" to="/Dashboard" />
           </ul>
         
           <a href="#contato" className="btn btn-nav-custom px-4 py-2 fw-bold rounded-4 text-uppercase" style={{ fontSize: '0.85rem', letterSpacing: '1px' }}>Contato</a>
