@@ -113,7 +113,7 @@ const LiteraSection = () => {
             Acesse a plataforma agora mesmo. Navegue pelo acervo, leia as resenhas completas
             e veja como o design e o código se unem neste projeto.
           </p>
-          <Link to="/litera-app/login" className="btn-litera-cta">
+          <Link to="/Login" className="btn-litera-cta">
             Visitar Projeto
           </Link>
         </div>

@@ -15,12 +15,12 @@ function App() {
         <Route path="/" element={<PortalPublico />}>
           <Route index element={<Home />} />
           <Route path="litera" element={<Litera />} />
+          <Route path="login" element={<Login />} />
           <Route path="dashboard" element={<Dashboard />} />
         </Route>
 
         {/* Área interna — sistema Litera */}
         <Route path="/litera-app" element={<LiteraApp />}>
-          <Route path="login" element={<Login />} />
           <Route path="dashboard" element={<Dashboard />} />
         </Route>
 

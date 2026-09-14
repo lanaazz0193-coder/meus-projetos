@@ -62,7 +62,7 @@ const Login = () => {
 
                 {/* Botão de entrar */}
                 <button type="submit" className="btn btn-principal-custom f-white btn-lg w-100 rounded-3 fw-bold py-3 mb-4">
-                  <Link to="/Dashboard">Entrar no sistema</Link>
+                  <Link to="/litera-app/Dashboard">Entrar no sistema</Link>
                 </button>
 
                 {/* Opções de continuidade */}
