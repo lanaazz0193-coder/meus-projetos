@@ -42,7 +42,7 @@ const SideBar = () => {
 
       {/* ── Rodapé ───────────────────────────────────── */}
       <div className="sidebar-footer">
-        <NavLink to="/litera-app/login" className="sidebar-logout">
+        <NavLink to="/Login" className="sidebar-logout">
           <i className="bi bi-box-arrow-left"></i>
           Sair do sistema
         </NavLink>
