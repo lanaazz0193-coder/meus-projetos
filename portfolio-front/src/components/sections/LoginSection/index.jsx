@@ -1,4 +1,5 @@
 import './login.css';
+import { Link } from 'react-router';
 
 const Login = () => {
   return (
@@ -61,7 +62,7 @@ const Login = () => {
 
                 {/* Botão de entrar */}
                 <button type="submit" className="btn btn-principal-custom f-white btn-lg w-100 rounded-3 fw-bold py-3 mb-4">
-                  Entrar no sistema
+                  <Link to="/Dashboard">Entrar no sistema</Link>
                 </button>
 
                 {/* Opções de continuidade */}

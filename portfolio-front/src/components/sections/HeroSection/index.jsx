@@ -32,7 +32,6 @@ const HeroSection = () => {
             <div className="d-inline-flex align-items-center gap-2 badge-glass rounded-pill px-3 py-1 mb-4">
               <span className="badge rounded-pill fw-semibold c-darkred f-white shadow-sm">ADS</span>
               <span className="small fw-medium f-lightgray">Dev</span>
-              <i className="bi bi-chevron-right small f-red"></i>
             </div>
 
             {/* Título e subtítulo */}
