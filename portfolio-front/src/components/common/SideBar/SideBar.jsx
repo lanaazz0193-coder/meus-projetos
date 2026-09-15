@@ -1,11 +1,11 @@
-import { NavLink } from "react-router";
+import { NavLink } from "react-router"; // ou "react-router-dom" dependendo da sua versão
 import './sidebar.css';
 
 const navItems = [
-  { to: "/litera-app/dashboard",   label: "Dashboard",       icon: "bi-speedometer2" },
-  { to: "/litera-app/livros",      label: "Catálogo",        icon: "bi-book" },
-  { to: "/litera-app/emprestimos", label: "Empréstimos",     icon: "bi-arrow-left-right" },
-  { to: "/litera-app/relatorios",  label: "Relatórios",      icon: "bi-bar-chart-line" },
+  { to: "/litera-app/dashboard",     label: "Dashboard",       icon: "bi-speedometer2" },
+  { to: "/litera-app/catalogo",      label: "Catálogo",        icon: "bi-book" },
+  { to: "/litera-app/relatorios",    label: "Relatórios",      icon: "bi-bar-chart-line" },
+  { to: "/litera-app/configuracoes", label: "Configurações",   icon: "bi-gear" }, 
 ];
 
 const SideBar = () => {
@@ -42,7 +42,7 @@ const SideBar = () => {
 
       {/* ── Rodapé ───────────────────────────────────── */}
       <div className="sidebar-footer">
-        <NavLink to="/Login" className="sidebar-logout">
+        <NavLink to="/" className="sidebar-logout">
           <i className="bi bi-box-arrow-left"></i>
           Sair do sistema
         </NavLink>

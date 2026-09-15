@@ -114,3 +114,8 @@
   box-shadow: 0 10px 25px rgba(184, 10, 6, 0.5);
   border-color: var(--white);
 }
+
+.contact-textarea {
+  height: 200px !important; /* Ajuste esse valor para o tamanho que desejar */
+  min-height: 150px;
+}

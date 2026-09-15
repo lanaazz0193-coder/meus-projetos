@@ -2,7 +2,7 @@ import './hero.css';
 
 const HeroSection = () => {
   return (
-    <section className="position-relative hero-wrapper text-center py-5 overflow-hidden">
+    <section id="inicio" className="position-relative hero-wrapper text-center py-5 overflow-hidden">
 
       {/* Imagem banner (agora com CSS em vez de inline style) */}     
       <img 

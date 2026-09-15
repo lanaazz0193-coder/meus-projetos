@@ -1,7 +1,23 @@
+import { useState } from 'react';
 import './contact.css'; // Importando o CSS local
 
 const ContactSection = () => {
-  return(
+  // Estado para controlar a animação de "Copiado"
+  const [emailCopiado, setEmailCopiado] = useState(false);
+
+  // Função que copia o e-mail para a área de transferência
+  const copiarEmail = (e) => {
+    e.preventDefault(); // Impede a página de pular pro topo
+    navigator.clipboard.writeText("lanaazz0193@gmail.com"); // Copia o e-mail
+    setEmailCopiado(true); // Muda o estado para verde
+    
+    // Volta ao normal depois de 2.5 segundos
+    setTimeout(() => {
+      setEmailCopiado(false);
+    }, 2500);
+  };
+
+  return (
     <section id="contato" className="py-5 position-relative overflow-hidden c-black">
       <div className="container py-5 position-relative z-1">
         
@@ -30,7 +46,12 @@ const ContactSection = () => {
               <div className="d-flex flex-column gap-4 mb-3 position-relative z-1">
             
                 {/* WhatsApp */}
-                <a href="#" className="text-decoration-none d-flex align-items-center gap-3 contact-info-item">
+                <a 
+                  href="https://wa.me/5531998189971?text=Ol%C3%A1%2C%20Ana%20L%C3%ADvia!%20Gostei%20muito%20do%20seu%20portf%C3%B3lio.%20Podemos%20bater%20um%20papo%20sobre%20uma%20oportunidade%20na%20nossa%20equipe%3F" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-decoration-none d-flex align-items-center gap-3 contact-info-item"
+                >
                   <div className="contact-icon-box shadow-sm">
                     <i className="bi bi-whatsapp"></i>
                   </div>
@@ -40,19 +61,37 @@ const ContactSection = () => {
                   </div>
                 </a>
 
-                {/* E-mail */}
-                <a href="mailto:lanaazz0193@gmail.com" className="text-decoration-none d-flex align-items-center gap-3 contact-info-item">
-                  <div className="contact-icon-box shadow-sm">
-                    <i className="bi bi-envelope-fill"></i>
+                {/* E-mail (Copiar para a área de transferência) */}
+                <a 
+                  href="#" 
+                  onClick={copiarEmail} 
+                  className="text-decoration-none d-flex align-items-center gap-3 contact-info-item"
+                  title="Clique para copiar o e-mail"
+                >
+                  <div 
+                    className="contact-icon-box shadow-sm transition-all" 
+                    style={{ 
+                      backgroundColor: emailCopiado ? '#198754' : '', 
+                      color: emailCopiado ? '#ffffff' : '' 
+                    }}
+                  >
+                    <i className={emailCopiado ? "bi bi-check-lg" : "bi bi-envelope-fill"}></i>
                   </div>
                   <div>
-                    <p className="mb-0 small f-gray">E-mail</p>
+                    <p className="mb-0 small" style={{ color: emailCopiado ? '#198754' : 'var(--gray)', transition: 'color 0.3s ease' }}>
+                      {emailCopiado ? "E-mail copiado!" : "E-mail"}
+                    </p>
                     <p className="mb-0 fw-semibold fs-5 f-lightgray">lanaazz0193@gmail.com</p>
                   </div>
                 </a>
 
                 {/* Localização */}
-                <div className="d-flex align-items-center gap-3 contact-info-item">
+                <a 
+                  href="https://viva.jaguaracu.mg.gov.br/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-decoration-none d-flex align-items-center gap-3 contact-info-item"
+                >
                   <div className="contact-icon-box shadow-sm">
                     <i className="bi bi-geo-alt-fill"></i>
                   </div>
@@ -60,7 +99,7 @@ const ContactSection = () => {
                     <p className="mb-0 small f-gray">Localização base</p>
                     <p className="mb-0 fw-semibold fs-5 f-lightgray">Jaguaraçu, MG - Brasil</p>
                   </div>
-                </div>
+                </a>
               </div>
 
             </div>

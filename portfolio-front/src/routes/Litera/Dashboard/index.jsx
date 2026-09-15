@@ -1,4 +1,4 @@
-import DashboardSection from "../../../components/sections/DashboardSection";
+import DashboardSection from "../../../components/sections/Dashboard";
 
 const Dashboard = () => {
   return (

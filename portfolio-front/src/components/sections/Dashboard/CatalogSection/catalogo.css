@@ -1,0 +1,100 @@
+/* ── Catálogo (Galeria de Livros) ───────────────────── */
+
+.book-card {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(38, 8, 8, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(38, 8, 8, 0.12);
+  border-color: #f0e8e0;
+}
+
+/* Área da imagem (Proporção 2:3 comum em livros) */
+.book-cover-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 150%; /* Mantém a proporção de retrato */
+  background-color: #faf3ee;
+  overflow: hidden;
+}
+
+.book-cover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.book-card:hover .book-cover-img {
+  transform: scale(1.05);
+}
+
+/* Placeholder para quando não houver imagem */
+.book-cover-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--paco), var(--spicymix));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--sorrellbrown);
+  padding: 1rem;
+  text-align: center;
+}
+
+.book-cover-placeholder i {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.7;
+}
+
+/* Informações abaixo da capa */
+.book-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.book-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--graphite);
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+  /* Trunca o texto em 2 linhas */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.book-author {
+  font-size: 0.8rem;
+  color: var(--millbrook);
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.book-genre-wrapper {
+  margin-top: auto; /* Empurra para o fundo do card */
+  padding-top: 0.5rem;
+}

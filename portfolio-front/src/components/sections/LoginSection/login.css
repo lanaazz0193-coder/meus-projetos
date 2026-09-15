@@ -1,10 +1,25 @@
-/* Fundo da Página */
-.bg-login-custom {
-  background: radial-gradient(circle at top left, var(--darkgray) 0%, var(--black) 100%);
+/* ═══════════════════════════════════════════════════════
+   PALETA LITERA GERAL
+══════════════════════════════════════════════════════════ */
+:root {
+  --graphite: #260808;
+  --paco: #4B1912;
+  --millbrook: #593C34;
+  --spicymix: #8C5E47;
+  --sorrellbrown: #C8A589;
+}
+
+/* Utilitários de Texto Rápidos */
+.text-graphite { color: var(--graphite); }
+.text-millbrook { color: var(--millbrook); }
+
+/* ── Fundo da Página ────────────────────────────────── */
+.bg-login-litera {
+  background-color: #f5ede4; 
   min-height: 100vh;
 }
 
-/* Limitadores de largura */
+/* ── Limitadores de largura ─────────────────────────── */
 .login-container {
   max-width: 1000px;
 }
@@ -13,130 +28,120 @@
   max-width: 420px;
 }
 
-/* Barras decorativas do painel esquerdo */
-.decor-bar {
-  height: 4px;
-}
-.decor-bar-lg {
-  width: 40px;
-}
-.decor-bar-sm {
-  width: 20px;
-}
-
-/* Divisor do formulário (Ou continue com) */
-.divider-gray {
-  border-color: var(--gray);
-}
-
-/* Card Principal */
-.card-glass {
-  border: 1px solid var(--darker);
-  box-shadow: 0 20px 50px rgba(20, 11, 14, 0.9), inset 0 0 0 1px rgba(184, 10, 6, 0.2);
+/* ── Card Principal ─────────────────────────────────── */
+.shadow-litera {
+  box-shadow: 0 15px 35px rgba(38, 8, 8, 0.08);
+  border: none;
   overflow: hidden;
 }
 
-/* Painel Esquerdo com Gradiente Dinâmico */
-.brand-panel {
-  background: linear-gradient(135deg, var(--black) 0%, var(--darker) 50%, var(--darkred) 100%);
-  border-right: 2px solid var(--red);
+/* ── Painel Esquerdo (Gradiente Litera Limpo) ───────── */
+.brand-panel-litera {
+  /* Gradiente limpo e elegante sem textura */
+  background: linear-gradient(135deg, var(--paco) 0%, var(--spicymix) 100%);
   position: relative;
   overflow: hidden;
 }
 
-.brand-panel::before {
-  content: "";
-  position: absolute;
-  top: -50%; left: -50%; width: 200%; height: 200%;
-  background: radial-gradient(circle, rgba(236,222,196,0.03) 2px, transparent 2px);
-  background-size: 30px 30px;
-  transform: rotate(30deg);
+/* ── Divisor (Ou continue com) ──────────────────────── */
+.divider-litera {
+  border-color: #e8ddd5;
+  opacity: 1;
 }
 
-/* Inputs Customizados */
-.custom-input {
-  background-color: var(--black) !important;
-  color: var(--white) !important;
-  border: 1px solid var(--gray) !important;
+/* ── Inputs Customizados ────────────────────────────── */
+.custom-input-litera {
+  background-color: #fff !important;
+  color: var(--graphite) !important;
+  border: 1px solid #e8ddd5 !important;
   transition: all 0.3s ease-in-out;
 }
 
-.custom-input:focus {
-  border-color: var(--red) !important;
-  box-shadow: 0 0 15px rgba(184, 10, 6, 0.4), inset 0 0 5px rgba(184, 10, 6, 0.2) !important;
+.custom-input-litera:focus {
+  border-color: var(--spicymix) !important;
+  box-shadow: 0 0 0 0.25rem rgba(140, 94, 71, 0.15) !important; 
 }
 
-/* Ajuste das Floating Labels do Bootstrap para Dark Mode */
+/* Ajuste das Floating Labels para tons claros */
 .form-floating > label {
-  color: var(--gray);
+  color: var(--millbrook);
 }
 .form-floating > .form-control:focus ~ label,
 .form-floating > .form-control:not(:placeholder-shown) ~ label {
-  color: var(--red);
+  color: var(--spicymix);
   background-color: transparent;
   transform: scale(0.85) translateY(-2.5rem) translateX(0.15rem);
 }
-.form-floating > .form-control:focus, .form-floating > .form-control:not(:placeholder-shown) {
-    padding-top: 1.625rem;
-    padding-bottom: 0.625rem;
+.form-floating > .form-control:focus, 
+.form-floating > .form-control:not(:placeholder-shown) {
+  padding-top: 1.625rem;
+  padding-bottom: 0.625rem;
 }
 
-/* Botão Principal com Efeito Glow e 3D */
-.btn-principal-custom {
-  background: linear-gradient(45deg, var(--darkred), var(--red));
-  border: 1px solid var(--red);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.4s;
-}
-
-.btn-principal-custom:hover {
-  background: linear-gradient(45deg, var(--red), var(--darker));
+/* ── Botão Principal de Login ───────────────────────── */
+.btn-litera-login {
+  background: linear-gradient(135deg, var(--paco), var(--spicymix));
   color: #fff;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  /* Transição mais refinada e elástica */
+  transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-litera-login:hover {
+  /* Cores levemente mais claras para dar sensação de brilho ao passar o mouse */
+  background: linear-gradient(135deg, #5e2218, #9c6c53);
+  color: #fff;
+  /* Efeito de flutuar e crescer sutilmente */
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 5px 10px rgba(184, 9, 6, 0.438);
-  border-color: var(--white);
+  /* Sombra mais difusa e profunda na cor do tema */
+  box-shadow: 0 12px 24px rgba(75, 25, 18, 0.4);
 }
 
-/* Botões Sociais */
-.btn-social-custom {
-  background-color: var(--black);
-  color: var(--lightgray);
-  border: 1px solid var(--gray);
+.btn-litera-login:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 4px 10px rgba(75, 25, 18, 0.3);
+}
+
+/* ── Botões Sociais ─────────────────────────────────── */
+.btn-social-litera {
+  background-color: #fff;
+  color: var(--millbrook);
+  border: 1px solid #e8ddd5;
   transition: all 0.3s ease;
 }
 
-.btn-social-custom:hover {
-  background-color: var(--darkred);
-  color: var(--white);
-  border-color: var(--red);
+.btn-social-litera:hover {
+  background-color: #faf3ee;
+  color: var(--spicymix);
+  border-color: var(--spicymix);
   transform: translateY(-2px);
-  box-shadow: 0 5px 10px rgba(92, 3, 3, 0.486);
 }
 
-/* Links Customizados */
-.link-custom {
+/* ── Links Customizados ─────────────────────────────── */
+.link-spicymix {
+  color: var(--spicymix);
   transition: all 0.3s ease;
 }
 
-.link-custom:hover {
-  color: var(--white) !important;
-  text-shadow: 0 0 8px var(--red);
+.link-spicymix:hover {
+  color: var(--paco);
 }
 
-/* Estilos para a Logo do Footer */
+/* ── Logo ───────────────────────────────────────────── */
 .logo {
-  max-width: 120px; /* Ajuste o tamanho máximo da sua imagem aqui */
+  max-width: 120px;
   height: auto;
-  transition: transform 0.9s ease;
+  transition: transform 0.5s ease;
 }
 
 .logo:hover {
-  transform: scale(1.09);
+  transform: scale(1.05);
 }
 
-/* Tamanho fixo caso use o ícone padrão da marca */
 .icon-logo {
   height: 50px;
   width: 40px;
+  object-fit: contain;
 }
