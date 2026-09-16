@@ -7,6 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use \App\Models\Livro;
 use \App\Models\Projeto;
+use \App\Models\ProjetoDavi;
 
 class DatabaseSeeder extends Seeder
 {

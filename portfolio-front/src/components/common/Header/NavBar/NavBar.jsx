@@ -64,10 +64,10 @@ const NavBar = () => {
                 </summary>
                 <div className="nav-dropdown-menu">
                   {/* Adicionamos o onClick para fechar o menu ao escolher uma opção */}
-                  <a href="#inicio" className="nav-dropdown-item" onClick={fecharDropdown}>Início</a>
-                  <a href="#sobre" className="nav-dropdown-item" onClick={fecharDropdown}>Sobre mim</a>
-                  <a href="#projetos" className="nav-dropdown-item" onClick={fecharDropdown}>Projetos</a>
-                  <a href="#contato" className="nav-dropdown-item" onClick={fecharDropdown}>Contato</a>
+                  <Link to="/" className="nav-dropdown-item" onClick={fecharDropdown}>Início</Link>
+                  <Link to="/#sobre" className="nav-dropdown-item" onClick={fecharDropdown}>Sobre mim</Link>
+                  <Link to="/#projetos" className="nav-dropdown-item" onClick={fecharDropdown}>Projetos</Link>
+                  <Link to="/#contato" className="nav-dropdown-item" onClick={fecharDropdown}>Contato</Link>
                 </div>
               </details>
             </li>

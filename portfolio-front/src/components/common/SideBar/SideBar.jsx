@@ -16,7 +16,7 @@ const SideBar = () => {
       <div className="sidebar-brand">
         <i className="bi bi-book-half sidebar-brand-icon f-red"></i>
         <span className="sidebar-brand-name">
-          Lite<span>ra</span>
+          Litera<span></span>
         </span>
       </div>
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Projeto extends Model
 {
-    /** @use HasFactory<\Database\Factories\LivroFactory> */
+    /** @use HasFactory<\Database\Factories\ProjetoFactory> */
     use HasFactory;
 
     protected $table = 'projetos';

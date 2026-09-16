@@ -46,9 +46,13 @@ const ProjectSection = () => {
                 Sistema web para gerenciamento de livros. Criado no curso técnico, o projeto foca em organização, usabilidade e código limpo. Confira o resultado!
               </p>
               
-              {/* Botão */}
+              {/* Botão CORRIGIDO */}
               <div className="mt-2">
-                <Link to="/Litera" className="btn btn-social-custom px-4 py-2 fw-semibold rounded-1 text-uppercase">
+                <Link 
+                  to="/Litera" 
+                  onClick={() => window.scrollTo(0, 0)} 
+                  className="btn btn-social-custom px-4 py-2 fw-semibold rounded-1 text-uppercase"
+                >
                   Ver Projeto
                 </Link>
               </div>

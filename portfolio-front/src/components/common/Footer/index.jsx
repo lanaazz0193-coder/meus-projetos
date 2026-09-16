@@ -40,10 +40,10 @@ const Footer = () => {
           <div className="col-lg-2 col-md-4 col-6">
             <h5 className="fw-bold mb-4 text-uppercase footer-heading f-white">Navegação</h5>
             <ul className="list-unstyled d-flex flex-column gap-3 mb-0">
-              <li><a href="#top" className="text-decoration-none link-footer">Início</a></li>
-              <li><a href="#sobre" className="text-decoration-none link-footer">Sobre Mim</a></li>
-              <li><a href="#projetos" className="text-decoration-none link-footer">Projetos</a></li>
-              <li><a href="#contato" className="text-decoration-none link-footer">Contato</a></li>
+              <li><Link to="/#inicio" className="text-decoration-none link-footer">Início</Link></li>
+              <li><Link to="/#sobre" className="text-decoration-none link-footer">Sobre Mim</Link></li>
+              <li><Link to="/#projetos" className="text-decoration-none link-footer">Projetos</Link></li>
+              <li><Link to="/#contato" className="text-decoration-none link-footer">Contato</Link></li>
             </ul>
           </div>
 

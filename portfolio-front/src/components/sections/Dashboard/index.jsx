@@ -115,7 +115,7 @@ const DashboardSection = () => {
   }
 
   return (
-    <div className="dashboard-wrapper">
+    <div id="dashboard" className="dashboard-wrapper">
       <div className="d-flex justify-content-between align-items-start mb-4">
         <div>
           <h1 className="dashboard-title">Visão Geral</h1>
