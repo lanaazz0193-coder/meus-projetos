@@ -10,34 +10,38 @@ const CAMPOS_VAZIOS = {
 };
 
 /**
- * Modal de criação e edição de projeto do portfólio.
- * Segue o mesmo padrão do LivroModal/ProjetoModal, mas com estilo dark do portfólio.
+ * Modal de criação e edição de Projeto.
+ * Campos do modelo: titulo, descricao, imagem, link, tecnologias
+ *
+ * A API retorna via ProjetoResource: { id, title, text, imageSrc, linkUrl, tech }
+ * então ao editar, mapeamos de volta para os campos do formulário.
  *
  * Props:
  *   aberto      — boolean
  *   onFechar    — callback ao fechar sem salvar
- *   onSalvar    — async callback(dados)
+ *   onSalvar    — async callback(dados) chamado ao submeter
  *   projeto     — objeto projeto para edição (null = criação)
  *   carregando  — boolean
  *   erroApi     — string | null
  */
-const PortfolioProjetoModal = ({ aberto, onFechar, onSalvar, projeto, carregando, erroApi }) => {
+const ProjetoModal = ({ aberto, onFechar, onSalvar, projeto, carregando, erroApi }) => {
   const [form, setForm] = useState(CAMPOS_VAZIOS);
   const [erros, setErros] = useState({});
 
   // Preenche o form ao abrir em modo edição
-  // A Resource retorna: title, text, imageSrc, linkUrl, tech (array)
+  // A Resource mapeia: titulo→title, descricao→text, imagem→imageSrc, link→linkUrl, tecnologias→tech
   useEffect(() => {
     if (projeto) {
+      // tech pode ser array (após json_decode no Resource) — converte para string CSV
       const techStr = Array.isArray(projeto.tech)
         ? projeto.tech.join(", ")
         : (projeto.tecnologias ?? "");
 
       setForm({
-        titulo:      projeto.title    ?? projeto.titulo    ?? "",
-        descricao:   projeto.text     ?? projeto.descricao ?? "",
-        imagem:      projeto.imageSrc ?? projeto.imagem    ?? "",
-        link:        projeto.linkUrl  ?? projeto.link      ?? "",
+        titulo:     projeto.title      ?? projeto.titulo     ?? "",
+        descricao:  projeto.text       ?? projeto.descricao  ?? "",
+        imagem:     projeto.imageSrc   ?? projeto.imagem     ?? "",
+        link:       projeto.linkUrl    ?? projeto.link       ?? "",
         tecnologias: techStr,
       });
     } else {
@@ -54,7 +58,7 @@ const PortfolioProjetoModal = ({ aberto, onFechar, onSalvar, projeto, carregando
 
   function validar() {
     const novosErros = {};
-    if (!form.titulo.trim())    novosErros.titulo    = "Título é obrigatório.";
+    if (!form.titulo.trim()) novosErros.titulo = "Título é obrigatório.";
     if (!form.descricao.trim()) novosErros.descricao = "Descrição é obrigatória.";
     setErros(novosErros);
     return Object.keys(novosErros).length === 0;
@@ -72,29 +76,30 @@ const PortfolioProjetoModal = ({ aberto, onFechar, onSalvar, projeto, carregando
     <Modal
       aberto={aberto}
       onFechar={onFechar}
-      titulo={modoEdicao ? "Editar projeto" : "Adicionar projeto ao portfólio"}
+      titulo={modoEdicao ? "Editar projeto" : "Cadastrar novo projeto"}
       tamanho="lg"
     >
       <form onSubmit={onSubmit} noValidate>
         <div className="p-4 d-flex flex-column gap-3">
 
+          {/* Erro da API */}
           {erroApi && (
             <div className="alert alert-danger py-2 small mb-0">{erroApi}</div>
           )}
 
           {/* Título */}
           <div>
-            <label htmlFor="port-titulo" className="form-label fw-semibold small">
+            <label htmlFor="proj-titulo" className="form-label fw-semibold small">
               Título <span className="text-danger">*</span>
             </label>
             <input
-              id="port-titulo"
+              id="proj-titulo"
               name="titulo"
               type="text"
               className={`form-control ${erros.titulo ? "is-invalid" : ""}`}
               value={form.titulo}
               onChange={onChange}
-              placeholder="Ex: Litera — Sistema de Biblioteca"
+              placeholder="Ex: Sistema de Biblioteca"
               autoFocus
               disabled={carregando}
             />
@@ -103,30 +108,30 @@ const PortfolioProjetoModal = ({ aberto, onFechar, onSalvar, projeto, carregando
 
           {/* Descrição */}
           <div>
-            <label htmlFor="port-descricao" className="form-label fw-semibold small">
+            <label htmlFor="proj-descricao" className="form-label fw-semibold small">
               Descrição <span className="text-danger">*</span>
             </label>
             <textarea
-              id="port-descricao"
+              id="proj-descricao"
               name="descricao"
               rows={3}
               className={`form-control ${erros.descricao ? "is-invalid" : ""}`}
               value={form.descricao}
               onChange={onChange}
-              placeholder="Descreva o projeto de forma resumida..."
+              placeholder="Breve resumo do projeto..."
               disabled={carregando}
             />
             {erros.descricao && <div className="invalid-feedback">{erros.descricao}</div>}
           </div>
 
-          {/* Link + Imagem */}
+          {/* Link + Imagem lado a lado */}
           <div className="row g-3">
             <div className="col-sm-6">
-              <label htmlFor="port-link" className="form-label fw-semibold small">
+              <label htmlFor="proj-link" className="form-label fw-semibold small">
                 Link do projeto
               </label>
               <input
-                id="port-link"
+                id="proj-link"
                 name="link"
                 type="url"
                 className="form-control"
@@ -137,11 +142,11 @@ const PortfolioProjetoModal = ({ aberto, onFechar, onSalvar, projeto, carregando
               />
             </div>
             <div className="col-sm-6">
-              <label htmlFor="port-imagem" className="form-label fw-semibold small">
-                URL da imagem de capa
+              <label htmlFor="proj-imagem" className="form-label fw-semibold small">
+                URL da imagem
               </label>
               <input
-                id="port-imagem"
+                id="proj-imagem"
                 name="imagem"
                 type="url"
                 className="form-control"
@@ -155,35 +160,21 @@ const PortfolioProjetoModal = ({ aberto, onFechar, onSalvar, projeto, carregando
 
           {/* Tecnologias */}
           <div>
-            <label htmlFor="port-tecnologias" className="form-label fw-semibold small">
+            <label htmlFor="proj-tecnologias" className="form-label fw-semibold small">
               Tecnologias
               <span className="text-muted fw-normal ms-1">(separadas por vírgula)</span>
             </label>
             <input
-              id="port-tecnologias"
+              id="proj-tecnologias"
               name="tecnologias"
               type="text"
               className="form-control"
               value={form.tecnologias}
               onChange={onChange}
-              placeholder="Ex: React, Laravel, MySQL"
+              placeholder="Ex: React, Laravel, SQLite"
               disabled={carregando}
             />
           </div>
-
-          {/* Preview da imagem */}
-          {form.imagem && (
-            <div>
-              <p className="form-label fw-semibold small mb-2">Preview da imagem</p>
-              <img
-                src={form.imagem}
-                alt="Preview"
-                className="rounded"
-                style={{ maxHeight: "140px", objectFit: "cover", width: "100%" }}
-                onError={(e) => { e.target.style.display = "none"; }}
-              />
-            </div>
-          )}
 
         </div>
 
@@ -197,20 +188,16 @@ const PortfolioProjetoModal = ({ aberto, onFechar, onSalvar, projeto, carregando
           >
             Cancelar
           </button>
-          <button
-            type="submit"
-            className="btn btn-dark px-4"
-            disabled={carregando}
-          >
+          <button type="submit" className="btn-litera px-4" disabled={carregando}>
             {carregando ? (
               <>
                 <span className="spinner-border spinner-border-sm me-2" role="status" />
-                {modoEdicao ? "Salvando..." : "Adicionando..."}
+                {modoEdicao ? "Salvando..." : "Cadastrando..."}
               </>
             ) : modoEdicao ? (
               "Salvar alterações"
             ) : (
-              "Adicionar ao portfólio"
+              "Cadastrar projeto"
             )}
           </button>
         </div>
@@ -219,4 +206,4 @@ const PortfolioProjetoModal = ({ aberto, onFechar, onSalvar, projeto, carregando
   );
 };
 
-export default PortfolioProjetoModal;
+export default ProjetoModal;

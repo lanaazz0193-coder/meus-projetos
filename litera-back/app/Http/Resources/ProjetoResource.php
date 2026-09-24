@@ -15,6 +15,16 @@ class ProjetoResource extends JsonResource
     public function toArray(Request $request): array
     {
 
+        $tech = $this->tecnologias;
+        if (is_string($tech)) {
+            $decoded = json_decode($tech, true);
+            if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                $tech = $decoded;
+            } else {
+                $tech = array_values(array_filter(array_map('trim', explode(',', $tech))));
+            }
+        }
+
         return [
             'id' => $this->id,
             'title' => $this->titulo,
@@ -22,7 +32,8 @@ class ProjetoResource extends JsonResource
             'imageSrc' => $this->imagem,
             'linkUrl' => $this->link,
             'linkText' => 'Acessar',
-            'tech' => is_string($this->tecnologias) ? json_decode($this->tecnologias) : $this->tecnologias,
+            'tech' => is_array($tech) ? $tech : [],
+            'tecnologias' => $this->tecnologias,
         ];
     }
 }

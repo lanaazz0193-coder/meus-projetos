@@ -1,20 +1,20 @@
-import { useState } from "react";
-import { useLivrosCrud } from "./useLivrosCrud";
-import { useProjetosCrud } from "./useProjetosCrud";
+﻿import { useState } from "react";
+import { useLivrosCrud } from "../../components/sections/Dashboard/useLivrosCrud";
+import { useProjetosCrud } from "../../components/sections/Dashboard/useProjetosCrud";
 
-import LivroModal from "../../ui/LivroModal";
-import ProjetoModal from "../../ui/ProjetoModal";
-import ConfirmModal from "../../ui/ConfirmModal";
-import "./dashboard.css";
+import LivroModal from "../../components/sections/Dashboard/modals/LivroModal";
+import ProjetoModal from "../../components/sections/Dashboard/modals/ProjetoModal";
+import ConfirmModal from "../../components/sections/Dashboard/modals/ConfirmModal";
+import "../../components/sections/Dashboard/dashboard.css";
 
-import { contarPorGenero, livroMaisRecente } from "./utils/helpers";
-import StatCard from "./components/StatCard";
-import TabelaLivros from "./components/TabelaLivros";
-import TabelaProjetos from "./components/TabelaProjetos";
-import CardGeneros from "./components/CardGeneros";
-import CardRecentes from "./components/CardRecentes";
+import { contarPorGenero, livroMaisRecente } from "../../components/sections/Dashboard/utils/helpers";
+import StatCard from "../../components/sections/Dashboard/components/StatCard";
+import TabelaLivros from "../../components/sections/Dashboard/components/TabelaLivros";
+import TabelaProjetos from "../../components/sections/Dashboard/components/TabelaProjetos";
+import CardGeneros from "../../components/sections/Dashboard/components/CardGeneros";
+import CardRecentes from "../../components/sections/Dashboard/components/CardRecentes";
 
-const DashboardSection = () => {
+const Dashboard = () => {
   const { livros, loading: loadingLivros, erro: erroLivros, salvar: salvarLivro, excluir: excluirLivro } = useLivrosCrud();
   const { projetos = [], loading: loadingProjetos, erro: erroProjetos, salvar: salvarProjeto, excluir: excluirProjeto } = useProjetosCrud();
 
@@ -237,4 +237,4 @@ const DashboardSection = () => {
   );
 };
 
-export default DashboardSection;
+export default Dashboard;

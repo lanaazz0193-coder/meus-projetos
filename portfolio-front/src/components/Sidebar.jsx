@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { NavLink } from "react-router"; // ou "react-router-dom" dependendo da sua versão
 import './sidebar.css';
 
 const navItems = [

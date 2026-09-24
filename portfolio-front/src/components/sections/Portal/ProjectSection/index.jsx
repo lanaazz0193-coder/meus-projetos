@@ -1,8 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router";
 import "./project.css";
-import Card, { CardSkeleton } from "../../ui/Card";
-import { projetoService } from "../../../services/projetoService";
+import Card, { CardSkeleton } from "../../../ui/Card";
+import { projetoService } from "../../../../services/projetoService";
 
 /**
  * Constante que define os 3 estados possíveis da seção/cards de projetos:

@@ -1,0 +1,166 @@
+/* ═══════════════════════════════════════════════════════
+   LITERA SECTION — PARALLAX + TYPEWRITER
+══════════════════════════════════════════════════════════ */
+
+.litera-section {
+  background-color: #f5ede4;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Fundo limpo, apenas com uma leve vinheta circular clara no centro */
+.litera-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, #ffffff 0%, #f5ede4 70%);
+  z-index: 0;
+}
+
+/* Utilitários Litera */
+.text-graphite { color: #260808 !important; }
+.shadow-litera { box-shadow: 0 10px 30px rgba(38, 8, 8, 0.05); }
+.shadow-litera-lg { box-shadow: 0 20px 40px rgba(38, 8, 8, 0.15); }
+
+/* ── 1. HERO SECTION (Parallax + Typewriter) ────────── */
+.hero-parallax-wrapper {
+  position: relative;
+  min-height: 90vh; 
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Livros flutuantes */
+.parallax-book {
+  position: absolute;
+  border-radius: 0.4rem 0.8rem 0.8rem 0.4rem;
+  z-index: 1; /* Atrás do texto */
+  pointer-events: none; /* Para não bloquear o clique nos botões */
+  transition: transform 0.1s ease-out;
+  box-shadow: 
+    inset -10px 0 20px rgba(0,0,0,0.1),
+    15px 15px 30px rgba(38, 8, 8, 0.2);
+}
+
+.parallax-book-spine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0.4rem 0 0 0.4rem;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+/* Badge e Textos */
+.litera-badge {
+  background-color: rgba(140, 94, 71, 0.1);
+  color: #8C5E47;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0.6rem 1.2rem;
+  border-radius: 2rem;
+  display: inline-block;
+  border: 1px solid rgba(140, 94, 71, 0.2);
+}
+
+.typewriter-text {
+  font-family: 'Playfair Display', 'Georgia', serif; /* Fonte com estilo clássico/literário */
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: 600;
+  font-style: italic;
+  color: #260808;
+  min-height: 120px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typewriter-cursor {
+  color: #8C5E47;
+  font-weight: 300;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.litera-lead {
+  color: #593C34;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* Botões com Efeito Fade-In */
+.fade-in-buttons {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.fade-in-buttons.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.btn-litera-primary {
+  background: linear-gradient(135deg, #4B1912, #8C5E47);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: none;
+}
+
+.btn-litera-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(75, 25, 18, 0.25);
+  color: #fff;
+}
+
+.btn-litera-outline {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  color: #4B1912;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  border: 1px solid #C8A589;
+  transition: all 0.3s ease;
+}
+
+.btn-litera-outline:hover {
+  border-color: #8C5E47;
+  color: #8C5E47;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+/* ── 3. BENTO GRID ───────────────────────────────────── */
+.litera-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -1px; color: #260808; }
+.litera-title-accent { color: #8C5E47; }
+.bento-card { background-color: #fff; border-radius: 1.5rem; padding: 2.5rem; border: 1px solid #e8ddd5; transition: transform 0.3s ease; position: relative; overflow: hidden; }
+.bento-card:hover { transform: translateY(-5px); }
+.bento-card-accent { background: linear-gradient(135deg, #8C5E47, #4B1912); border: none; height: 100%; }
+.bento-card-dark { background-color: #260808; border: none; }
+.bento-icon { font-size: 2rem; color: #8C5E47; margin-bottom: 1.5rem; display: block; }
+.bento-title { font-size: 1.25rem; font-weight: 800; color: #260808; margin-bottom: 0.75rem; }
+.bento-text { color: #593C34; font-size: 0.95rem; line-height: 1.6; }
+.bento-visual-gallery { margin-top: 2rem; height: 120px; background: linear-gradient(to top, rgba(250, 243, 238, 1), transparent), repeating-linear-gradient(90deg, #f0e8e0 0px, #f0e8e0 80px, transparent 80px, transparent 90px); border-radius: 0.5rem; border: 1px solid #e8ddd5; }
+.profile-avatar { width: 80px; height: 80px; background-color: #8C5E47; border-radius: 50%; border: 4px solid rgba(255,255,255,0.1); }
+
+/* ── 4. CTA FINAL ────────────────────────────────────── */
+.litera-cta-card { background: linear-gradient(135deg, #fff, #faf3ee); border: 1px solid #e8ddd5; border-radius: 2rem; padding: 5rem 2rem; text-align: center; }
+.litera-cta-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; color: #260808; margin-bottom: 1rem; }
+.litera-cta-text { color: #593C34; font-size: 1.1rem; margin-bottom: 2rem; }

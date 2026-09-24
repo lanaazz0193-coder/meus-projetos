@@ -1,0 +1,287 @@
+/* Fundo da Navbar com efeito Glassmorphism */
+.bg-navbar-custom {
+  background-color: var(--black);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Tamanho da Logo */
+.navbar-logo {
+  height: 45px;
+  width: auto;
+  transition: transform 0.8s ease;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.09);
+}
+
+/* Estilização dos Links de Navegação */
+.nav-link-custom {
+  color: var(--lightgray) !important;
+  font-weight: 500;
+  letter-spacing: 1px;
+  position: relative;
+  padding: 0.5rem 1rem !important;
+  transition: color 0.3s ease;
+}
+
+.nav-link-custom:hover,
+.nav-link-custom:focus {
+  color: var(--white) !important;
+}
+
+.nav-link-custom::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--red);
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+.nav-link-custom:hover::after {
+  width: 80%;
+}
+
+/* Dropdown customizado */
+.nav-dropdown-wrapper {
+  position: relative;
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.nav-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  color: var(--lightgray);
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+}
+
+.nav-dropdown-toggle:hover,
+.nav-dropdown[open] .nav-dropdown-toggle {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  min-width: 200px;
+  background: rgba(20, 20, 20, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.9rem;
+  padding: 0.5rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.28);
+  z-index: 1000;
+}
+
+.nav-dropdown-item {
+  display: block;
+  color: var(--lightgray);
+  text-decoration: none;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.6rem;
+  transition: all 0.2s ease;
+}
+
+.nav-dropdown-item:hover,
+.nav-dropdown-item:focus {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* Botão de Entrar Customizado */
+.btn-nav-custom {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--darkred);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-nav-custom:hover {
+  background-color: var(--red);
+  color: var(--white);
+  box-shadow: 0 5px 15px rgba(117, 5, 3, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Ajuste do botão hambúrguer para o tema escuro */
+.navbar-toggler-custom {
+  border-color: var(--gray) !important;
+}
+
+.navbar-toggler-custom:focus {
+  box-shadow: 0 0 0 0.25rem rgba(184, 10, 6, 0.25) !important;
+}
+
+
+
+
+.nav-dropdown-wrapper {
+  position: relative;
+}
+
+.nav-dropdown summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.nav-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  color: var(--lightgray);
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+}
+
+/* Rotação da setinha (chevron) ao abrir o dropdown */
+.nav-dropdown-toggle i {
+  transition: transform 0.3s ease;
+}
+
+.nav-dropdown[open] .nav-dropdown-toggle i {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-toggle:hover,
+.nav-dropdown[open] .nav-dropdown-toggle {
+  color: var(--white);
+}
+
+/* Estilo do container do menu (Glassmorphism e paleta) */
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 1rem);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 200px;
+  background-color: rgba(15, 15, 15, 0.85); /* Fundo super escuro transparente */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 3px solid var(--red); /* Detalhe da paleta no topo */
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+/* Animação suave de entrada ao abrir o <details> */
+.nav-dropdown[open] .nav-dropdown-menu {
+  animation: dropdownFadeIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 15px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Estilo individual de cada link dentro do menu */
+.nav-dropdown-item {
+  display: block;
+  color: var(--lightgray);
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0.25rem;
+}
+
+.nav-dropdown-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Efeito Hover nos links do Dropdown */
+.nav-dropdown-item:hover,
+.nav-dropdown-item:focus {
+  background-color: rgba(184, 10, 6, 0.1); /* Fundo vermelho bem suave */
+  color: var(--white);
+  padding-left: 1.4rem; /* Desliza o texto de leve */
+}
+
+/* Barrinha vermelha na lateral esquerda que cresce no Hover */
+.nav-dropdown-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: var(--red);
+  transform: scaleY(0);
+  transition: transform 0.2s ease;
+}
+
+.nav-dropdown-item:hover::before {
+  transform: scaleY(1);
+}
+
+/* =======================================================
+   RESPONSIVIDADE: Ajuste do Menu no Celular
+======================================================= */
+@media (max-width: 767.98px) {
+  .nav-dropdown-menu {
+    /* Tira o absolute para não sobrepor o resto do menu hambúrguer */
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none !important;
+    width: 100%;
+    
+    /* Remove fundo e bordas pra ficar mais orgânico no mobile */
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    box-shadow: none;
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .nav-dropdown[open] .nav-dropdown-menu {
+    animation: none; /* Desativa a animação complexa no celular para evitar bugs */
+  }
+  
+  .nav-dropdown-item:hover,
+  .nav-dropdown-item:focus {
+    background-color: transparent; /* Fica mais limpo no celular */
+  }
+}

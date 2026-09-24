@@ -1,15 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
-
-const API_URL = "http://localhost:8000/api/projetos";
+import { projetoService } from "../../../services/projetoService";
 
 /**
  * Hook centralizado para todas as operações CRUD de projetos.
- *
- * O backend usa ProjetoResource::collection, que retorna { data: [...] }.
- * Cada item tem: { id, title, text, imageSrc, linkUrl, linkText, tech }
- *
- * Para salvar/atualizar, enviamos os campos do modelo:
- *   titulo, descricao, imagem, link, tecnologias (JSON string)
+ * Utiliza o projetoService integrado com o banco de dados.
  */
 export function useProjetosCrud() {
   const [projetos, setProjetos] = useState([]);
@@ -20,21 +14,18 @@ export function useProjetosCrud() {
     setLoading(true);
     setErro(null);
     try {
-      // limit=100 para trazer todos (o controller tem default 3)
-      const res = await fetch(`${API_URL}?limit=100`);
-      if (!res.ok) throw new Error("Não foi possível carregar os projetos.");
-      const json = await res.json();
-      // Resource::collection envolve em { data: [] }
-      const lista = Array.isArray(json) ? json : (json.data ?? []);
+      const lista = await projetoService.getProjetos({ limit: 100 });
       setProjetos(lista);
     } catch (err) {
-      setErro(err.message);
+      setErro(err.message || "Não foi possível carregar os projetos.");
     } finally {
       setLoading(false);
     }
   }, []);
 
-  useEffect(() => { recarregar(); }, [recarregar]);
+  useEffect(() => {
+    recarregar();
+  }, [recarregar]);
 
   /**
    * Cria (POST) ou atualiza (PUT) um projeto.
@@ -42,40 +33,19 @@ export function useProjetosCrud() {
    * @param {number|null} id — se informado faz PUT; caso contrário POST
    */
   async function salvar(dados, id = null) {
-    const url    = id ? `${API_URL}/${id}` : API_URL;
-    const metodo = id ? "PUT" : "POST";
-
-    // tecnologias: aceita string "tag1, tag2" ou array — salva como JSON no banco
-    const tecnologias = Array.isArray(dados.tecnologias)
-      ? JSON.stringify(dados.tecnologias)
-      : JSON.stringify(
-          dados.tecnologias
-            ? dados.tecnologias.split(",").map((t) => t.trim()).filter(Boolean)
-            : []
-        );
-
-    const payload = { ...dados, tecnologias };
-
     try {
-      const res = await fetch(url, {
-        method: metodo,
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!res.ok) {
-        const corpo = await res.json().catch(() => ({}));
-        const mensagem =
-          corpo?.message ||
-          Object.values(corpo?.errors ?? {}).flat()[0] ||
-          "Erro ao salvar projeto.";
-        return { ok: false, erro: mensagem };
+      if (id) {
+        await projetoService.updateProjeto(id, dados);
+      } else {
+        await projetoService.createProjeto(dados);
       }
-
       recarregar();
       return { ok: true, erro: null };
-    } catch {
-      return { ok: false, erro: "Sem conexão com o servidor." };
+    } catch (err) {
+      return {
+        ok: false,
+        erro: err.message || "Erro ao salvar projeto no banco de dados.",
+      };
     }
   }
 
@@ -84,17 +54,18 @@ export function useProjetosCrud() {
    */
   async function excluir(id) {
     try {
-      const res = await fetch(`${API_URL}/${id}`, {
-        method: "DELETE",
-        headers: { Accept: "application/json" },
-      });
-      if (!res.ok) return { ok: false, erro: "Erro ao excluir projeto." };
+      await projetoService.deleteProjeto(id);
       recarregar();
       return { ok: true, erro: null };
-    } catch {
-      return { ok: false, erro: "Sem conexão com o servidor." };
+    } catch (err) {
+      return {
+        ok: false,
+        erro: err.message || "Erro ao excluir projeto do banco de dados.",
+      };
     }
   }
 
   return { projetos, loading, erro, salvar, excluir, recarregar };
 }
+
+export default useProjetosCrud;
